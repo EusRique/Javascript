@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+
+    <!-- CSS
+    ================================================== -->
+    <link rel="stylesheet" href="css/base.css">  
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- script
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <!-- favicons
+	================================================== -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    
+</head>
+<body id="top">
+    <header>
+        <div class="row">
+            <div class="logo">
+                <a href="#">Animal</a>
+            </div> 
+        </div> 
+    </header> 
+    
+    <section id="home" class="home-static">
+        <div class="shadow-overlay"></div>
+        <div class="content-wrap-table">		   
+            <div class="main-content-tablecell">
+                <div class="row">
+                    <div class="col-twelve">
+                        <div id="counter">
+                            <div class="half">
+                                <span><span id="dias"></span><sup>dias</sup></span> 
+                                <span> <span id="horas"></span><sup>horas</sup></span>
+                            </div>
+                            <div class="half">
+                            <span><span id="minutos"></span> <sup>minutos</sup></span>
+                                <span><span id="segundos"></span> <sup>segundos</sup></span>
+                            </div> 
+                        </div>
+                        <div class="bottom-text">
+                            <h1>Animal</h1>
+                            <p> A tecnologia move o mundo </p>			  				
+                        </div>			  						  			   			
+                    </div>
+                </div> 
+            </div> 
+        </div> 
+    </section>
+    <script>
+        /*
+        Em uma página crie uma função que dado um número de minutos crie um countdown em tempo real (de segundo a segundo)
+        até chegar em zero no formato 08:30:20, por exemplo:
+        */
+
+        //Aqui vai ser sempre a hora atual
+        var startDate = new Date();
+        //Como exemplo vou definir a data de fim com base na data atual
+        var endDate = new Date();
+        endDate.setDate(endDate.getDate()+5);
+
+        //aqui é a diferenca entre as datas, basicamente é com isso que voce calcula o tempo restante
+        var dateDiff;
+        var days, hours, minutes, seconds;
+        var $day    = $('#dias');
+        var $hour   = $('#horas');
+        var $minute = $('#minutos');
+        var $second = $('#segundos');
+        var debug   = $('#debug');
+        var timer;
+
+        function update() {
+            dateDiff = endDate - startDate;
+            dateDiff = dateDiff / 1000;
+            
+            seconds = Math.floor((dateDiff % 60));
+
+            dateDiff = dateDiff / 60;
+            minutes = Math.floor((dateDiff % 60));
+
+            dateDiff = dateDiff / 60;
+            hours = Math.floor((dateDiff%24));
+
+            days = Math.floor(dateDiff/24);
+
+            $day.text(days);
+            $hour.text(hours);
+            $minute.text(minutes);
+            $second.text(seconds);
+
+            startDate.setSeconds(startDate.getSeconds()+1);
+            
+            
+        }
+
+        update();
+        timer = setInterval(update, 1000);
+    </script>
+</body>
+<body>
+        <div id="dias"></div>
+        <div id="horas"></div>
+        <div id="minutos"></div>
+        <div id="segundos"></div>
+        <div id="debug"></div>
+    
+</body>
+</html>

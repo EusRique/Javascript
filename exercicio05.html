@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+</head>
+<body>
+    <script>
+        /*Dado o seguinte vetor de objetos:
+        Escreva uma função que produza o seguinte resultado: O Diego possui as habilidades: Javascript, ReactJS, Redux
+        O Gabriel possui as habilidades: VueJS, Ruby on Rails, Elixir*/
+        
+        var usuarios = [
+            {
+                nome: 'Diego',
+                habilidades: ['Javascript', 'ReactJS', 'Redux']
+            },
+            {
+                nome: 'Gabriel',
+                habilidades: ['VueJS', 'Ruby on Rails', 'Elixir'],
+            }
+        ];
+
+        function verificaHabilidades() {
+            for (let value of usuarios) {
+                results = "O " + value.nome + " possui as habilidades: " + value.habilidades;
+
+                console.log(results);
+            }
+        }
+        
+        verificaHabilidades();
+        
+    </script>
+</body>
+</html>

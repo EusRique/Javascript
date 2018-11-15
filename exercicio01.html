@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+</head>
+<body>
+    <script>
+        //Crie uma função que dado o obejto a seguir retorn a seguinte frase
+        //O usuário mora em São Paulo / SP, no bairro Centro, na rua "Rua dos Pinheiros" com nº 1293.
+        function verificaEndereco() {
+            var endereco = {
+                rua: 'Rua dos pinheiros',
+                numero: 1293,
+                bairro: 'Centro',
+                cidade: 'São Paulo',
+                uf: 'SP'
+            };
+
+            return endereco;
+        }
+        
+        var resultado = verificaEndereco();
+
+        console.log('O usuário mora em ' + resultado.cidade + ' / ' + resultado.uf + ' no bairro ' + resultado.bairro + 
+        ', na rua "' + resultado.rua + '" com nº ' + resultado.numero + '.');
+    </script>
+</body>
+</html>

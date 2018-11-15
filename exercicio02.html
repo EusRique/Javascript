@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+</head>
+<body>
+    <script>
+        //Crie uma função que dado um intervalo (entre x e y) exiba todos número pares:
+        
+        function pares(x, y) {
+            //var x = 32;
+            //var y = 321;
+            var result = x;
+            for(x = x; x < y; x++ ) {
+                if (x % 2 == 0) {
+                    result += " é par \n " + x; 
+                }
+            }
+            
+            return result;
+        }
+
+        resultado = pares(32, 321);
+
+        console.log(resultado);
+    </script>
+</body>
+</html>
