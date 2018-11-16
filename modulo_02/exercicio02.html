@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    <!--
+        Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado vermelho com 100px 
+        de altura e largura. Sempre que o botão for clicado um novo quadrado deve aparecer na tela.
+    -->
+    <div class="container">
+        <div id="app">
+            <button type="button" class="btn btn-success">Success</button>
+            
+        </div>
+    </div>
+    <script>
+        var btnElement = document.querySelector('button.btn');
+        let count = 1;
+
+        btnElement.onclick = function() {
+            // Cria um novo elemento box
+            let boxElement = document.createElement("div");
+            boxElement.className = "box";
+            boxElement.id = "box-" + count;
+            boxElement.style.width = '100px';
+            boxElement.style.height = '100px';
+            boxElement.style.marginTop = '50px';
+            boxElement.style.backgroundColor = '#f00';
+
+            boxElement.addEventListener("mouseover", () => {
+                let newColor = getRandomColor();
+
+                console.log(boxElement.id + ": " + newColor);
+                boxElement.style.backgroundColor = newColor;
+            });
+            
+            // Adiciona um novo elemento box para app
+            document.getElementById('app').appendChild(boxElement);
+            count++;
+        }
+
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    </script>
+</body>
+</html>

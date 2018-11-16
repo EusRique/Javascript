@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+    <!-- A partir do seguinte vetor: Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+    . Diego
+    . Gabriel
+    . Lucas
+    -->
+    <div class="container">
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2">
+                <label class="sr-only">Nome</label>
+                <input type="text" class="form-control" id="nome" placeholder="Nome">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2" onclick="">Adicionar</button>
+        </form>
+        <div id="app"></div>
+    </div>
+    <script>
+        var nomes = ['Diego', 'Gabriel', 'Lucas'];
+        
+        var btnElement = document.querySelector('button.btn');
+
+        btnElement.onclick = function() {
+            var captureElement = document.querySelector('nome').value;
+            console.log(captureElement); 
+        }
+
+        function list(array) {
+            //Cria a lista do elemento
+            var listElement = document.createElement("ul");
+           
+            for (var i = 0; i < array.length; i++) {
+                //Cria a lista de item
+                var itemElement = document.createElement('li');
+
+                //Defini seu conteudo
+                itemElement.appendChild(document.createTextNode(array[i]));
+
+                //Adiciona um item a lista
+                listElement.appendChild(itemElement);
+            }
+            return listElement;
+        }
+        
+        // Add the contents of options[0] to #foo:
+        document.querySelector('#app').appendChild(list(nomes));
+    
+    </script>
+</body>
+</html>
