@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Java Script</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <!-- A partir do seguinte vetor: Preencha uma lista (<ul>) no HTML com os itens da seguinte forma:
+    . Diego
+    . Gabriel
+    . Lucas
+    -->
+    <div class="container">
+        <ul id="data">
+        </ul>
+        <button class="btn btn-info" onClick="byName()">Ordenar por nome</button>
+        <button class="btn btn-info" onClick="byAge()">Ordenar por idade</button>
+        
+        <button class="btn btn-info" onClick="showUsers('M');">Exibir apenas homens</button>
+        <button class="btn btn-info" onClick="showUsers('F');">Exibir apenas mulheres</button>
+        <button class="btn btn-info" onClick="showUsers('all');">Exibir todos</button>
+    </div>
+    <script>
+        var users = [
+            {
+                nome: 'Diego',
+                idade: 23,
+                sexo: 'M',
+            },
+            {
+                nome: 'Gabriela',
+                idade: 18,
+                sexo: 'F',
+            },
+            {
+                nome: 'José',
+                idade: 30,
+                sexo:  'M',
+            },
+            {
+                nome: 'Maria',
+                idade: 27,
+                sexo: 'F'
+            },
+            {
+                nome: 'Amanda',
+                idade: 26,
+                sexo: 'F'
+            }
+        ];
+        
+        var show = 'all';
+
+        function textList(u) {
+            return u.nome + " é " + (u.sexo == 'M' ? "Masculino" : "Feminino") + " e possui " + u.idade + "ano(s)";
+        }
+
+        function byName() {
+            users.sort(function(a, b) {
+                return a.nome < b.nome ? -1 : (a.nome > b. nome) ? 1 : 0;
+            });
+            list();
+        }
+
+        function byAge() {
+            users.sort(function(a, b){
+                return a.idade < b.idade ? -1 : (a.idade > b.idade) ? 1 : 0;
+            });
+            list();
+        }
+
+        function showUsers(value) {
+            show = value;
+            list();
+        }
+
+        function list() {
+            var listElement = document.getElementById("data");
+            listElement.innerHTML = '';
+            for (i = 0; i < users.length; i++) {
+                if (show == 'all' || users[i].sexo == show) {
+                var itemElement = document.createElement('li');
+                itemElement.innerHTML = textList(users[i]);
+                listElement.appendChild(itemElement);
+                }
+            }
+        }
+        list(); // init
+    </script>
+</body>
+</html>

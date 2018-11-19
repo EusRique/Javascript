@@ -16,28 +16,32 @@
     . Lucas
     -->
     <div class="container">
-        <form class="form-inline">
+        <div class="form-inline">
             <div class="form-group mx-sm-3 mb-2">
                 <label class="sr-only">Nome</label>
                 <input type="text" class="form-control" id="nome" placeholder="Nome">
             </div>
-            <button type="submit" class="btn btn-primary mb-2" onclick="">Adicionar</button>
-        </form>
+            <button type="submit" class="btn btn-primary mb-2" onclick="adicionar()">Adicionar</button>
+        </div>
         <div id="app"></div>
     </div>
     <script>
         var nomes = ['Diego', 'Gabriel', 'Lucas'];
-        
-        var btnElement = document.querySelector('button.btn');
+        //var btnElement = document.querySelector('button.btn');
 
-        btnElement.onclick = function() {
-            var captureElement = document.querySelector('nome').value;
-            console.log(captureElement); 
+        function adicionar() { 
+            var inputElement = document.querySelector("#nome").value;
+            //nomes = inputElement;
+            nomes.push(inputElement);
+            document.querySelector('#app').innerHTML = list(nomes).outerHTML;
+            document.querySelector("#nome").value = "";
         }
 
         function list(array) {
             //Cria a lista do elemento
             var listElement = document.createElement("ul");
+    
+            //listElement.setAttribute('id', 'myList');
            
             for (var i = 0; i < array.length; i++) {
                 //Cria a lista de item
@@ -54,7 +58,6 @@
         
         // Add the contents of options[0] to #foo:
         document.querySelector('#app').appendChild(list(nomes));
-    
     </script>
 </body>
 </html>
